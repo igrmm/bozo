@@ -1,1 +1,4 @@
-# bozo
+bozo
+====
+
+A simple satirical game
