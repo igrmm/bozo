@@ -12,7 +12,7 @@ public class Bozo extends Game {
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		img = new Texture("player.png");
+		img = new Texture("images/player.png");
 	}
 
 	@Override
