@@ -1,11 +1,11 @@
 package com.igrmm.bozo;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Bozo extends ApplicationAdapter {
+public class Bozo extends Game {
 	SpriteBatch batch;
 	Texture img;
 	
