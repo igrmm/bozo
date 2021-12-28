@@ -1,6 +1,7 @@
 package com.igrmm.bozo;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,7 +20,6 @@ public class Bozo extends Game {
 
 	private SpriteBatch batch;
 	private final AssetManager assetManager = new AssetManager();
-	private Texture img;
 
 	@Override
 	public void create() {
@@ -27,20 +27,24 @@ public class Bozo extends Game {
 		assetManager.finishLoading();
 
 		batch = new SpriteBatch();
-		img = assetManager.get(ImageAsset.PLAYER_IMG.path);
-	}
-
-	@Override
-	public void render() {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		setScreen(new GameScreen());
 	}
 
 	@Override
 	public void dispose() {
 		batch.dispose();
 		assetManager.dispose();
+	}
+
+	private class GameScreen extends ScreenAdapter {
+		private final Texture img = assetManager.get(ImageAsset.PLAYER_IMG.path);
+
+		@Override
+		public void render(float delta) {
+			ScreenUtils.clear(1, 0, 0, 1);
+			batch.begin();
+			batch.draw(img, 0, 0);
+			batch.end();
+		}
 	}
 }
