@@ -41,7 +41,7 @@ public class Bozo extends Game {
 
 		@Override
 		public void render(float delta) {
-			ScreenUtils.clear(1, 0, 0, 1);
+			ScreenUtils.clear(1.0f, 1.0f, 0.66f, 1.0f);
 			batch.begin();
 			batch.draw(img, 0, 0);
 			batch.end();
