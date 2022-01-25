@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Tile extends GameObject {
 
-	public enum TileType {TOP_FLAT, RIGHT_FLAT, BOTTOM_FLAT, LEFT_FLAT}
+	public enum TileType {FLAT_TOP, FLAT_RIGHT, FLAT_BOTTOM, FLAT_LEFT}
 
 	private final TileType tileType;
 
