@@ -13,7 +13,7 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(Bozo game) {
 		this.game = game;
 		batch = new SpriteBatch();
-		img = game.assets.get(ImageAsset.PLAYER_IMG.path);
+		img = game.assets.get(ImageAsset.PLAYER.path);
 	}
 
 	@Override
