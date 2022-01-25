@@ -1,7 +1,8 @@
 package com.igrmm.bozo;
 
 public enum ImageAsset {
-	PLAYER("images/player.png");
+	PLAYER("images/player.png"),
+	TILESET("images/tileset.png");
 
 	public final String path;
 
