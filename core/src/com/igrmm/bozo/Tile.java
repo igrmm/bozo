@@ -3,6 +3,7 @@ package com.igrmm.bozo;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Tile extends GameObject {
+	public static final int TILE_SIZE = 8;
 
 	public enum TileType {FLAT_TOP, FLAT_RIGHT, FLAT_BOTTOM, FLAT_LEFT}
 
