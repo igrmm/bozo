@@ -10,5 +10,5 @@ public abstract class GameObject {
 		return this.rectangle.overlaps(r);
 	}
 
-	public abstract void render(SpriteBatch batch);
+	public abstract void draw(SpriteBatch batch);
 }
