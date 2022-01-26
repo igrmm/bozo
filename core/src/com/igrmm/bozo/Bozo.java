@@ -5,6 +5,8 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 
 public class Bozo extends Game {
+	public static final int VIEWPORT_WIDTH = 320, VIEWPORT_HEIGHT = 180;
+
 	public final AssetManager assets = new AssetManager();
 
 	@Override
