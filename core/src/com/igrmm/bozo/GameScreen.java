@@ -18,7 +18,7 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(Bozo game) {
 		this.game = game;
 		batch = new SpriteBatch();
-		img = game.assets.get(ImageAsset.PLAYER.path);
+		img = game.assetManager.get(ImageAsset.PLAYER.path);
 
 		viewport = new ExtendViewport(Bozo.VIEWPORT_WIDTH, Bozo.VIEWPORT_HEIGHT, new OrthographicCamera());
 	}
