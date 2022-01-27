@@ -13,11 +13,15 @@ public class GameScreen extends ScreenAdapter {
 	private final SpriteBatch batch;
 	private final Viewport viewport;
 
+	private final Player player;
+
 	public GameScreen(Bozo game) {
 		this.game = game;
 		assets = new Assets(game.assetManager);
 		batch = new SpriteBatch();
 		viewport = new ExtendViewport(Bozo.VIEWPORT_WIDTH, Bozo.VIEWPORT_HEIGHT, new OrthographicCamera());
+
+		player = new Player(assets.playerTex);
 	}
 
 	@Override
@@ -26,7 +30,7 @@ public class GameScreen extends ScreenAdapter {
 		viewport.apply();
 		batch.setProjectionMatrix(viewport.getCamera().combined);
 		batch.begin();
-		batch.draw(assets.playerTex, 0, 0);
+		player.draw(batch);
 		batch.end();
 	}
 
