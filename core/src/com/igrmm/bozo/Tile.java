@@ -31,7 +31,7 @@ public class Tile extends GameObject {
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
+	public void draw(SpriteBatch batch) {
 		batch.draw(tileset, rectangle.x, rectangle.y, tileType.srcX, tileType.srcY, TILE_SIZE, TILE_SIZE);
 	}
 }
