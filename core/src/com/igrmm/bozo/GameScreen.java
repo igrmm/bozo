@@ -26,7 +26,10 @@ public class GameScreen extends ScreenAdapter {
 
 	@Override
 	public void render(float delta) {
-		ScreenUtils.clear(1.0f, 1.0f, 0.66f, 1.0f);
+		viewport.getCamera().position.x = player.rectangle.x + player.rectangle.width / 2f;
+		viewport.getCamera().position.y = player.rectangle.y + player.rectangle.height / 2f;
+
+		ScreenUtils.clear(1f, 1f, 0.66f, 1f);
 		viewport.apply();
 		batch.setProjectionMatrix(viewport.getCamera().combined);
 		batch.begin();

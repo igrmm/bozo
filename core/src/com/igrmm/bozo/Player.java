@@ -8,10 +8,11 @@ public class Player extends GameObject {
 
 	public Player(Texture playerTex) {
 		this.playerTex = playerTex;
+		this.rectangle.set(0f, 0f, 16f, 16f);
 	}
 
 	@Override
 	public void draw(SpriteBatch batch) {
-		batch.draw(playerTex, 0, 0);
+		batch.draw(playerTex, this.rectangle.x, this.rectangle.y);
 	}
 }
