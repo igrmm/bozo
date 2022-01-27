@@ -1,7 +1,9 @@
 package com.igrmm.bozo;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 
 public class Bozo extends Game {
@@ -11,7 +13,9 @@ public class Bozo extends Game {
 
 	@Override
 	public void create() {
-		for (ImageAsset imageAsset : ImageAsset.values()) assetManager.load(imageAsset.path, Texture.class);
+		FileHandle textures = Gdx.files.internal("images/");
+		for (FileHandle texture : textures.list())
+			assetManager.load(texture.path(), Texture.class);
 		assetManager.finishLoading();
 		setScreen(new GameScreen(this));
 	}
