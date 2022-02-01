@@ -20,6 +20,7 @@ public class GameScreen extends ScreenAdapter {
 	private final Stage stageUI;
 
 	private final Player player;
+	private final World world;
 
 	public GameScreen(Bozo game) {
 		this.game = game;
@@ -29,6 +30,7 @@ public class GameScreen extends ScreenAdapter {
 		stageUI = new Stage(new ScreenViewport());
 
 		player = new Player(assets.playerTex);
+		world = new World(assets.tilesetTex);
 	}
 
 	@Override
@@ -52,6 +54,7 @@ public class GameScreen extends ScreenAdapter {
 		stageUI.act(delta);
 		batch.setProjectionMatrix(viewport.getCamera().combined);
 		batch.begin();
+		world.draw(batch);
 		player.draw(batch);
 		batch.end();
 	}
