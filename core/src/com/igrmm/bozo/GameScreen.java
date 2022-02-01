@@ -1,10 +1,15 @@
 package com.igrmm.bozo;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class GameScreen extends ScreenAdapter {
@@ -12,6 +17,7 @@ public class GameScreen extends ScreenAdapter {
 	private final Assets assets;
 	private final SpriteBatch batch;
 	private final Viewport viewport;
+	private final Stage stageUI;
 
 	private final Player player;
 
@@ -20,8 +26,20 @@ public class GameScreen extends ScreenAdapter {
 		assets = new Assets(game.assetManager);
 		batch = new SpriteBatch();
 		viewport = new ExtendViewport(Bozo.VIEWPORT_WIDTH, Bozo.VIEWPORT_HEIGHT, new OrthographicCamera());
+		stageUI = new Stage(new ScreenViewport());
 
 		player = new Player(assets.playerTex);
+	}
+
+	@Override
+	public void show() {
+		stageUI.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				System.out.println("clicked");
+			}
+		});
+		Gdx.input.setInputProcessor(stageUI);
 	}
 
 	@Override
@@ -31,6 +49,7 @@ public class GameScreen extends ScreenAdapter {
 
 		ScreenUtils.clear(1f, 1f, 0.66f, 1f);
 		viewport.apply();
+		stageUI.act(delta);
 		batch.setProjectionMatrix(viewport.getCamera().combined);
 		batch.begin();
 		player.draw(batch);
@@ -40,6 +59,7 @@ public class GameScreen extends ScreenAdapter {
 	@Override
 	public void resize(int width, int height) {
 		viewport.update(width, height);
+		stageUI.getViewport().update(width, height, true);
 	}
 
 	@Override
